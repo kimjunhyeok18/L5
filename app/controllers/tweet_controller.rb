@@ -2,12 +2,12 @@ class TopController < ApplicationController
     # session[:login_uid]がnilでなければ main.html.erbを、nilなら login.html.erbをrenderする。
     require 'bcrypt'
     def main
-        session[:login_uid] ||= nil
-        if session[:login_uid]
-            render "main"
-        else
-            render "login"
-        end
+        #session[:login_uid] ||= nil
+        #if session[:login_uid]
+        #    render "main"
+        #else
+        #    render "login"
+        #end
     end
     def new
         @user = User.new
