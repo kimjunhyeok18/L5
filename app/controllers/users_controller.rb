@@ -11,11 +11,10 @@ class UsersController < ApplicationController
         redirect_to root_path
     end
     def create
-        @user = user.new(message: params[:user][:message], tdate: Time.current, image: image)
+        pass = BCrypt::Password.create(params[:pass])
+        @user = User.new(uid: params[:uid], pass: pass)
         if @user.save
-            #redirect_to '/'
             redirect_to root_path
-            #redirect_to controller: :users, action: :index #=>一覧ページにリダイレクトする
         else
             render 'new'
         end
