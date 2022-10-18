@@ -1,1 +1,3 @@
+<% if not(session[:login_uid]) %>
 <%= link_to 'signup', controller: 'users', action: 'new' %>
+<% end %>

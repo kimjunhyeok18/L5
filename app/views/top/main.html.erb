@@ -1,9 +1,14 @@
-login
-<%= render "signup" %>
-<%= form_tag '/top/login', method: :post do %>
-    <%= label_tag :uid, 'ユーザーID' %>
-    <%= text_field_tag :uid %>
-    <%= label_tag :pass, 'パスワード' %>
-    <%= password_field_tag :pass %>
-    <%= submit_tag 'ログイン' %>
+logined page
+
+welcome <%= session[:login_uid]%>
+
+<%= link_to 'signup', controller: 'users', action: 'new' %>
+
+Main Page
+
+<%= form_tag '/top/logout', method: :post do %>
+    <%= submit_tag 'ログアウト' %>
+<% end %>
+<%= form_tag '/top/delete_account', method: :post do %>
+    <%= submit_tag 'アカウント削除' %>
 <% end %>

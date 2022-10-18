@@ -1,5 +1,8 @@
+<%= render 'signin' %>
+
 <% @tweets.each do |t| %>
     <%= t.message %>
+    [tweeted by <%= t.user_id %>]
     <%= link_to 'delete', "tweets/#{t.id}", method: :delete %>
     <hr>
 <% end %>

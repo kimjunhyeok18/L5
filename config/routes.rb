@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   resources :likes
   root 'users#index'
   post '/users/create', to: 'users#create'
+  get '/top/main', to: 'top#main'
+  post 'top/login', to: 'top#login'
+  get 'top/logout', to: 'top#logout'
 end

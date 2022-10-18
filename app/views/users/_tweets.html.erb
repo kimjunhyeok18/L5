@@ -1,5 +1,18 @@
 <% @tweets.each do |t| %>
     <%= t.message %>
-    <%= link_to 'delete', "tweets/#{t.id}", method: :delete %>
+    <!--
+        ログインしたアカウントとtweetを書いた人が同じであるか確認。
+        同じであれば、削除できる
+    -->
+    <% if User.find_by(session[:login_uid]).id == Tweet.find(t.id).user_id %>
+        <%= link_to 'delete', "tweets/#{t.id}", method: :delete %>
+    <% end %>
+    
     <hr>
+<% end %>
+    <!--
+        ログインしたらtweetが書ける
+    -->
+<% if session[:login_uid] %>
+    <%= link_to 'tweetを書く', controller: 'tweets', action: 'new' %>
 <% end %>

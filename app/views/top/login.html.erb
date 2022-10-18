@@ -1,0 +1,11 @@
+login page
+
+<%= form_tag '/top/login', method: :post do %>
+    <%= label_tag :uid, 'ユーザーID' %>
+    <%= text_field_tag :uid %>
+    <%= label_tag :pass, 'パスワード' %>
+    <%= password_field_tag :pass %>
+    <%= submit_tag 'ログイン' %>
+<% end %>
+
+<%= link_to 'signup', controller: 'users', action: 'new' %>
