@@ -14,7 +14,7 @@ class TweetsController < ApplicationController
         @tweet = Tweet.new
     end
     def create
-        Tweet.new(message: params[:tweet][:message], user_id: session[:login_uid])
+        @tweet = Tweet.new(message: params[:tweet][:message], user_id: session[:login_uid])
         if @tweet.save
             #redirect_to '/'
             redirect_to root_path

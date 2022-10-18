@@ -1,0 +1,9 @@
+
+
+
+
+<%= form_tag '/tweets', method: :post do %>
+    <%= label_tag :message, 'tweet message' %>
+    <%= text_field_tag :message %>
+    <%= submit_tag 'tweetする' %>
+<% end %>

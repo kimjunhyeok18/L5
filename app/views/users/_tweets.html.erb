@@ -1,9 +1,11 @@
 <% @tweets.each do |t| %>
-    <%= t.message %>
+    <%= t.message %> [tweeted by <%= t.user_id %>]
     <!--
         ログインしたアカウントとtweetを書いた人が同じであるか確認。
         同じであれば、削除できる
     -->
+    <%= link_to 'いいね', likes_path(tweet_id: t.id), method: :post %>
+    <%= link_to 'いいね削除', like_path(t), method: :delete %>
     <% if User.find_by(session[:login_uid]).id == Tweet.find(t.id).user_id %>
         <%= link_to 'delete', "tweets/#{t.id}", method: :delete %>
     <% end %>
