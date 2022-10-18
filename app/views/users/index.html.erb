@@ -1,4 +1,7 @@
 <div>users index page</div>
+<% if  session[:login_uid] %>
+    welcome <%= session[:login_uid]%>
+<% end %>
 <div>
     <%= render 'tweets' %>
 </div>
@@ -8,6 +11,9 @@
 <div>
     <%= render 'signup' %>
 
+</div>
+<div> 
+    <%= render 'signout' %>
 </div>
 <div>
     <%= render 'user_list' %>
