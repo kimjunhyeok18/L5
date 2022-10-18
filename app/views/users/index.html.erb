@@ -1,16 +1,16 @@
 <div>users index page</div>
+
 <% if  session[:login_uid] %>
     welcome <%= session[:login_uid]%>
+    <%= link_to 'ログアウト', "/top/logout" ,method: :get %>
+<% else %>
+    <div>
+    <%= render 'signup' %>
+    <%= render 'signin' %>
+    </div>
 <% end %>
 <div>
     <%= render 'tweets' %>
-</div>
-<div>
-    <%= link_to 't', '/tweets' ,method: :get %>
-</div>
-<div>
-    <%= render 'signup' %>
-
 </div>
 <div> 
     <%= render 'signout' %>

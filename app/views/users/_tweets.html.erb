@@ -1,3 +1,12 @@
+    <!--
+        ログインしたらtweetが書ける
+    -->
+<% if session[:login_uid] %>
+    <%= link_to 'tweetする', controller: 'tweets', action: 'new' %>
+<% end %>
+
+<P></P>
+
 <% @tweets.each do |t| %>
 
     <%= t.message %> [tweeted by <%= t.user_id %>]
@@ -15,9 +24,4 @@
     
     <hr>
 <% end %>
-    <!--
-        ログインしたらtweetが書ける
-    -->
-<% if session[:login_uid] %>
-    <%= link_to 'tweetする', controller: 'tweets', action: 'new' %>
-<% end %>
+

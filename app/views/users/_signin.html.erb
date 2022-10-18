@@ -1,0 +1,5 @@
+<%if session[:login_uid] ==  nil %>
+    <%= link_to 'login', '/top/main' ,method: :get %>
+<%else %>
+    <%= link_to 'logout', '/top/logout' ,method: :get %>
+<% end %>
